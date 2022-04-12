@@ -16,8 +16,19 @@ function cadastrar(x) {
     return x
 }
 
+function cadastrar() {return data}
+function listarPorId(id) {let pet = data.find(pet => pet.id == id)
+     if(pet){return pet}else{return({erro: "True",mensagem:"Pet não encontrado!"})}}
+function cadastrar(x) {
+    x.id=data.length + 1
+    data.push(x);
+    return x
+}
+
+
 module.exports = {
     listar:listar,
     listarPorId:listarPorId,
     cadastrar:cadastrar,
+    cadastrar1:cadastrar1
 }

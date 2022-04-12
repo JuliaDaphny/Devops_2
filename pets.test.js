@@ -38,9 +38,18 @@ describe("Teste de funcionalidade listar", () => {
             })
         );
     });
-    it("Cadastrar", () => {
+
+    it("Cadastrar novo pet", () => {
         expect(pets.cadastrar({ nome:"Gertrudi", idade:12, sexo:"F", especie:"Mula"})).toEqual(
-            expect.objectContaining({id:5, nome:"Gertrudi", idade:12, sexo:"F", especie:"Mula"})
+            expect.objectContaining({nome:"Gertrudi", idade:12, sexo:"F", especie:"Mula"})
+        );
+    });
+
+    it("Cadastrar", () => {
+        expect(pets.cadastrar1({ nome:"Júlia"})).toEqual(
+            expect.objectContaining({
+                mensagem: "Campo 'nome' é obrigatorio"
+            })
         );
     });
 
