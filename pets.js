@@ -1,14 +1,6 @@
 const data = [
-    {
-        id: 1, nome: "Lis",
-        idade: 15, sexo: "M",
-        especie: "bode"
-    },
-    {
-        id: 2, nome: "macos",
-        idade: 10, sexo: "M",
-        especie: "gato"
-    },
+    {id: 1, nome: "Lis", idade: 15, sexo: "M",especie: "bode"},
+    {id: 2, nome: "Macos", idade: 10, sexo: "M", especie: "gato"},
 ];
 
 function listar() {
@@ -18,10 +10,7 @@ function listar() {
 function listarPorId(id) {
     const pet = data.find(pet => pet.id === id)
     if (!pet) {
-        return {
-            erro: true,
-            mensagem: "Pet não encontrado!"
-        };
+        return { erro: true, mensagem: "Pet não encontrado!"};
     }
     return pet;
 }
@@ -43,12 +32,10 @@ function cadastrar(pet) {
         return { erro: true, mensagem: "Campo 'especie' é obrigatório!" }
 
     }
-    else if(pet.idade < 0){
-        return {erro: true, mensagem: "Campo 'idade' deve ser maior ou igual a zero!"}
+    else if(pet.idade < 0){ return {erro: true, mensagem: "Campo 'idade' deve ser maior ou igual a zero!"}
     }
 
-    else if(pet.sexo != ('M' || 'F')){
-        return {erro: true, mensagem: "Campo 'sexo' deve ser 'M' ou 'F'!"}
+    else if(pet.sexo != ('M' || 'F')){ return {erro: true, mensagem: "Campo 'sexo' deve ser 'M' ou 'F'!"}
     }
     else{
         pet.id = data.length + 1;
@@ -77,16 +64,10 @@ function deletarPorId(id) {
     if(index === -1){ return { erro: true, mensagem: "Pet não encontrado!" }
     } else {
         data.splice(index , 1 )
-        return {
-            erro: false, mensagem: "Pet deletado com sucesso!"
-        }
+        return { erro: false, mensagem: "Pet deletado com sucesso!"}
     }
 }
 
 module.exports = {
-    listar,
-    listarPorId,
-    cadastrar,
-    editarPorId,
-    deletarPorId
+    listar, listarPorId, cadastrar, editarPorId, deletarPorId
 }
